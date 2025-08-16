@@ -9,11 +9,13 @@ import Listblog from './pages/admin/Listblog.jsx'
 import Comments from './pages/admin/Comments.jsx'
 import Login from './components/Admin/Login.jsx'
 import 'quill/dist/quill.snow.css'
+import {Toaster} from 'rect-hot-toast'
 function App() {
 
 
   return (  
     <div>
+    <Toaster/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/blog/:id' element={<Blog/>}/>
