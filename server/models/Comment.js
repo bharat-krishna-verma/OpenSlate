@@ -5,5 +5,5 @@ const commentSchema =new mongoose.Schema({
     content:{type:String,required:true},
     isApproved:{type:Boolean,default:false},
 },{timestamps:true});
-const Blog = mongoose.model('Comment',commentSchema);
+const Comment = mongoose.model('Comment',commentSchema);
 export default Comment;
