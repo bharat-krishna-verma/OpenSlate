@@ -7,7 +7,12 @@ import adminRouter from './routes/adminRoutes.js';
 import blogRouter from './routes/blogRoutes.js';
 const app = express();
 await connectDB
-app.use(cors());
+app.use(cors({
+  origin: 'https://open-slate.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
+
 app.use(express.json());
 app.get('/',(req,res)=>res.send("API is Working"))
 app.use('/api/admin',adminRouter)
