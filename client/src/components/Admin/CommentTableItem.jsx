@@ -3,8 +3,8 @@ import { assets } from '../../assets/assets';
 import { useAppContext } from '../../context/AppContext';
 import toast from 'react-hot-toast';
 
-const CommentTableItem = ({comment,fetchComments}) => {
-    const {blog, createdAt ,_id}= comment;
+const CommentTableItem = ({comments,fetchComments}) => {
+    const {blog, createdAt ,_id}= comments;
     const BlogDate = new Date(createdAt);
     const {axios}= useAppContext();
     const approveComment = async ()=>{
@@ -37,16 +37,16 @@ const CommentTableItem = ({comment,fetchComments}) => {
         <b className='font-medium text-gray-600'>Blog</b> : {blog.title}
         <br/>
         <br/>
-        <b className='font-medium text-gray-600'>Name</b> : {comment.name}
+        <b className='font-medium text-gray-600'>Name</b> : {comments.name}
         <br/>
-        <b className='font-medium text-gray-600'>Comment</b> : {comment.comment}
+        <b className='font-medium text-gray-600'>Comment</b> : {comments.comment}
     </td>
     <td className='px-6 py-4 max:sm:hidden'>
         {BlogDate.toLocaleDateString()}
     </td>
     <td className='px-6 py-4'>
         <div className='inline-flex items-center gap-4'>
-            {!comment.isApproved ? <img onClick={approveComment} src={assets.tick_icon} className='w-5 hover:scale-110 
+            {!comments.isApproved ? <img onClick={approveComment} src={assets.tick_icon} className='w-5 hover:scale-110 
             transition-all cursor-pointer'/>:<p className='text-xs border border-green-600 bg-green-100
             text-green-600 rounded-full px-3 py-1'>Approved</p>}
             <img onClick={deleteComment} src={assets.bin_icon} className='w-5 hover:scale-110 transition-all cursor-pointer'></img>
